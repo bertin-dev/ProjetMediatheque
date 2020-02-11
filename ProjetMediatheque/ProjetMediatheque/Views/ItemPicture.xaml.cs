@@ -14,11 +14,11 @@ namespace ProjetMediatheque.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ItemPicture : ContentPage
     {
-        ItemsViewModel viewModel;
+        //ItemsViewModel viewModel;
         public ItemPicture()
         {
             InitializeComponent();
-            BindingContext = viewModel = new ItemsViewModel();
+            //BindingContext = viewModel = new ItemsViewModel();
         }
 
         async void OnItemSelected(object sender, SelectedItemChangedEventArgs args)
@@ -35,16 +35,16 @@ namespace ProjetMediatheque.Views
 
         async void AddItem_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushModalAsync(new NavigationPage(new NewItemPage()));
+            await Navigation.PushModalAsync(new NavigationPage(new UploadPicture()));
         }
 
-        protected override void OnAppearing()
+        /*protected override void OnAppearing()
         {
             base.OnAppearing();
 
             if (viewModel.Items.Count == 0)
                 viewModel.LoadItemsCommand.Execute(null);
-        }
+        }       */
 
     }
 }

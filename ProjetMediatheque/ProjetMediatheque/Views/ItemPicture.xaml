@@ -9,7 +9,7 @@
              x:Class="ProjetMediatheque.Views.ItemPicture">
 
        <ContentPage.ToolbarItems>
-           <ToolbarItem Text="Add" Clicked="AddItem_Clicked" />
+           <ToolbarItem Text="Ajouter" Clicked="AddItem_Clicked" />
        </ContentPage.ToolbarItems>
 
     <StackLayout>

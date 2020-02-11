@@ -16,7 +16,7 @@ namespace ProjetMediatheque.ViewModels
            // OpenWebCommand = new Command(async () => await Browser.OpenAsync("https://xamarin.com"));
         }
 
-        public ICommand OpenWebCommand { get; }
+        //public ICommand OpenWebCommand { get; }
 
     }
 }
