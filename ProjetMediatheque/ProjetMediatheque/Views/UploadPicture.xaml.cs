@@ -1,6 +1,4 @@
 ﻿using Microsoft.WindowsAzure.Storage;
-using Plugin.Media;
-using Plugin.Media.Abstractions;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -10,21 +8,22 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using System.Runtime.CompilerServices;
-
-
-
+using Plugin.Media;
+using Plugin.Media.Abstractions;
 
 namespace ProjetMediatheque.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class UploadPicture : ContentPage
     {
+        private MediaFile _mediaFile;
+
         public UploadPicture()
         {
             InitializeComponent();
+            Title = "Upload d'images";
         }
 
-        private MediaFile _mediaFile;
         public string URL { get; set; }
 
         //Picture choose from device
@@ -34,7 +33,7 @@ namespace ProjetMediatheque.Views
             await CrossMedia.Current.Initialize();
             if (!CrossMedia.Current.IsPickPhotoSupported)
             {
-                await DisplayAlert("Error", "This is not support on your device.", "OK");
+                await DisplayAlert("Error", "Votre périphérique n'est pas supporté", "OK");
                 return;
             }
             else
@@ -54,7 +53,7 @@ namespace ProjetMediatheque.Views
         {
             if (_mediaFile == null)
             {
-                await DisplayAlert("Error", "There was an error when trying to get your image.", "OK");
+                await DisplayAlert("Error", "Une erreur est survenue", "OK");
                 return;
             }
             else
@@ -71,7 +70,7 @@ namespace ProjetMediatheque.Views
             await CrossMedia.Current.Initialize();
             if (!CrossMedia.Current.IsCameraAvailable || !CrossMedia.Current.IsTakePhotoSupported)
             {
-                await DisplayAlert("No Camera", ":(No Camera available.)", "OK");
+                await DisplayAlert("Pas de Camera", ":(Aucune camera n'est disponible.)", "OK");
                 return;
             }
             else

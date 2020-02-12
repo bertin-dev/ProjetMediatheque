@@ -18,6 +18,7 @@ namespace ProjetMediatheque.Views
         public ItemPicture()
         {
             InitializeComponent();
+            Title = "Accueil";
             //BindingContext = viewModel = new ItemsViewModel();
         }
 
@@ -30,7 +31,7 @@ namespace ProjetMediatheque.Views
             await Navigation.PushAsync(new ItemDetailPage(new ItemDetailViewModel(item)));
 
             // Manually deselect item.
-            ItemsListView.SelectedItem = null;
+            //ItemsListView.SelectedItem = null;
         }
 
         async void AddItem_Clicked(object sender, EventArgs e)

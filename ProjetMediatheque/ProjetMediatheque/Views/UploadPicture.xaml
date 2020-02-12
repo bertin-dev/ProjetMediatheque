@@ -4,29 +4,32 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
+             Title="{Binding Title}"
+             x:Name="BrowseItemsPage"
              x:Class="ProjetMediatheque.Views.UploadPicture">
 
-
-    <StackLayout Padding="10,10,10,0">
+    <ScrollView>    
+        <StackLayout Padding="10,10,10,0">
         <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
-            <Button x:Name="btnSelectPic" Grid.Row="0" Grid.Column="0" Text="Select picture"
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Button x:Name="btnSelectPic" Grid.Row="0" Grid.Column="0" Text="Gallerie"
                 Clicked="Button_Clicked" BackgroundColor="DodgerBlue" TextColor="White"/>
-            <Button x:Name="btnTakePic" Grid.Row="0" Grid.Column="1" Text="Take picture"
+                <Button x:Name="btnTakePic" Grid.Row="0" Grid.Column="1" Text="Camera"
                 Clicked="Button_Clicked_2" BackgroundColor="DodgerBlue" TextColor="White"/>
-        </Grid>
+            </Grid>
 
-        <Image x:Name="imageView" HeightRequest="300" WidthRequest="400"/>
-        <ActivityIndicator x:Name="uploadIndicator" IsVisible="False" IsRunning="False" Color="DodgerBlue"/>
-        <Button Text="Upload to Blob" Clicked="Button_Clicked_1" x:Name="btnUpload" BackgroundColor="Green" TextColor="White"/>
+            <Image x:Name="imageView" HeightRequest="300" WidthRequest="400"/>
+            <ActivityIndicator x:Name="uploadIndicator" IsVisible="False" IsRunning="False" Color="DodgerBlue"/>
+            <Button Text="Envoyer" Clicked="Button_Clicked_1" x:Name="btnUpload" BackgroundColor="Green" TextColor="White"/>
         <Editor x:Name="UploadedUrl" TextColor="Black" HeightRequest="85" Text="Image URL:"/>
-
     </StackLayout>
     
+    </ScrollView>
+
 
 </ContentPage>
